@@ -427,9 +427,9 @@ const std::map<std::string, std::string>& apex_public_libraries() {
 
 bool is_product_treblelized() {
 #if defined(ART_TARGET_ANDROID)
-  // Product is treblelized iff the sdk version is newer than U
+  // Product is treblelized iff the sdk version is newer than U QPR2
   // or launching version is R or newer or ro.product.vndk.version is defined
-  return android::modules::sdklevel::IsAtLeastV() ||
+  return android::modules::sdklevel::IsAtLeastU() ||
          android::base::GetIntProperty("ro.product.first_api_level", 0) >= __ANDROID_API_R__ ||
          android::sysprop::VndkProperties::product_vndk_version().has_value();
 #else
